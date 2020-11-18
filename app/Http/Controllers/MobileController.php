@@ -131,11 +131,11 @@ class MobileController extends Controller
     public function status()
     {
         // dd('test');
-        if (auth()->user()->completed == 0 && auth()->user()->scheme_code == '1134') {
+        if (auth()->user()->completed == 0 && auth()->user()->scheme_code == '1132') {
             return redirect()->route('mobile');
         }
 
-        if (auth()->user()->completed == 1 && auth()->user()->submit == 0 && auth()->user()->scheme_code == '1134') {
+        if (auth()->user()->completed == 1 && auth()->user()->submit == 0 && auth()->user()->scheme_code == '1132') {
             $clientIP = request()->ip();
             $name = auth()->user()->name;
             $email = auth()->user()->email;
@@ -165,7 +165,7 @@ class MobileController extends Controller
             return redirect()->route('mobile.status');
         }
 
-        if (auth()->user()->submit == 1 && auth()->user()->scheme_code == '1134') {
+        if (auth()->user()->submit == 1 && auth()->user()->scheme_code == '1132') {
             if (auth()->user()->status == 7) {
                 $catatan = User::select('users.*', 'tbl_daftar.catatan')
                     ->where('users.id', auth()->user()->id)
@@ -366,7 +366,7 @@ class MobileController extends Controller
             'business_closed'       => ['required'],
             'business_income'       => ['required'],
 			'partner_name'          => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
-            'partner_ic'            => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad','numeric', 'min:12'],
+            'partner_ic'            => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
             'partner_address1'      => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
             'partner_postcode'      => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
             'partner_city'          => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
@@ -468,7 +468,7 @@ class MobileController extends Controller
                 "doc_ic_no2"            => ['required', 'file', 'mimes:jpg,jpeg,png', 'max:3000'],
                 "doc_icP_no1"           => [Rule::requiredIf($request->user()->peribadi->marital == 'Berkahwin'), 'file', 'mimes:jpg,jpeg,png', 'max:3000'],
                 "doc_icP_no2"           => [Rule::requiredIf($request->user()->peribadi->marital == 'Berkahwin'), 'file', 'mimes:jpg,jpeg,png', 'max:3000'],
-                "doc_ssm"               => ['required', 'file', 'mimes:pdf', 'max:3000'],
+                "doc_ssm"               => ['file', 'mimes:pdf', 'max:3000'],
                 // "doc_bank"              => ['required', 'file', 'mimes:pdf', 'max:3000'],
                 // "doc_bank_comp"         => ['file', 'mimes:pdf', 'max:3000'],
                 // "doc_bil"               => ['required', 'file', 'mimes:pdf', 'max:3000'],
