@@ -33,7 +33,7 @@ class LoginController extends Controller
     {
         if (Auth::check()) {
             if (auth()->user()->submit === '1') {
-                return redirect()->route('sptp-status');
+                return redirect()->route('mobile.status');
             } else {
                 if (is_null(auth()->user()->scheme_code)) {
                     return redirect()->route('home');
