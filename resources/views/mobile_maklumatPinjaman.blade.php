@@ -361,7 +361,7 @@
                             Panduan menukar gambar jenis "JPG" kepada PDF
                         </p>
                         <span class="inline-flex rounded-md shadow-sm">
-                            <a href="{{ asset('img') }}/cbrm/pdf_convert.pdf" target="_blank" type="button"
+                            <a href="{{ asset('img/edic/pdf_convert.pdf') }}" target="_blank" type="button"
                                 class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
                                 <svg class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
