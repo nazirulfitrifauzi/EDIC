@@ -424,14 +424,14 @@
                                             <div class="flex items-center">
                                                 <input id="oku_yes" name="oku" value="Ya" type="radio"
                                                     @if(isset(auth()->user()->peribadi->oku))
-                                                @if(auth()->user()->peribadi->oku == 'Ya')
-                                                checked
-                                                @else
-                                                {{ old('oku') == 'Ya' ? 'checked':'' }}
-                                                @endif
-                                                @else
-                                                {{ old('oku') == 'Ya' ? 'checked':'' }}
-                                                @endif
+                                                        @if(auth()->user()->peribadi->oku == 'Ya')
+                                                            checked
+                                                        @else
+                                                            {{ old('oku') == 'Ya' ? 'checked':'' }}
+                                                        @endif
+                                                    @else
+                                                        checked
+                                                    @endif
                                                 class="w-4 h-4 text-indigo-600 transition duration-150 ease-in-out form-radio" />
                                                 <label for="oku_yes" class="ml-3">
                                                     <span
@@ -439,14 +439,16 @@
                                                 </label>
                                                 <input id="oku_no" name="oku" value="Tidak" type="radio"
                                                     @if(isset(auth()->user()->peribadi->oku))
-                                                @if(auth()->user()->peribadi->oku == 'Tidak')
-                                                checked
-                                                @else
-                                                {{ old('oku') == 'Tidak' ? 'checked':'' }}
-                                                @endif
-                                                @else
-                                                {{ old('oku') == 'Tidak' ? 'checked':'' }}
-                                                @endif
+                                                        @if(auth()->user()->peribadi->oku == 'Tidak')
+                                                            checked
+                                                        @else
+                                                            {{ old('oku') == 'Tidak' ? 'checked':'' }}
+                                                        @endif
+                                                    @elseif(old('oku') == 'Tidak')
+                                                        checked
+                                                    @else
+                                                        checked
+                                                    @endif
                                                 class="w-4 h-4 ml-8 text-indigo-600 transition duration-150 ease-in-out form-radio" />
                                                 <label for="oku_no" class="ml-3">
                                                     <span

@@ -154,7 +154,7 @@
                         <div class="px-4 py-5 sm:p-6">
                             <!-- Content goes here -->
                             <div class="">
-                                <p class="text-lg font-medium leading-6 text-center text-gray-900">Permohonan TBRS bagi
+                                <p class="text-lg font-medium leading-6 text-center text-gray-900">Permohonan EDIC bagi
                                 </p>
 
                                 <p class="text-lg font-medium leading-6 text-center text-gray-900">
@@ -168,7 +168,7 @@
                                     {{ auth()->user()->peribadi->phone_hp }}</p>
                                 <p class="mt-4 text-3xl font-medium leading-8 text-center text-gray-900">
                                     @if (auth()->user()->status == 1 || auth()->user()->status == 2 || auth()->user()->status == 3 || auth()->user()->status == 4 || auth()->user()->status == 5 || auth()->user()->status == 6)
-										Berjaya dihantar & sedang diproses.
+										Permohonan telah dihantar untuk diproses.
                                     @elseif(auth()->user()->status == 10 )
 										Permohonan Lulus
                                     @elseif(auth()->user()->status == 20)

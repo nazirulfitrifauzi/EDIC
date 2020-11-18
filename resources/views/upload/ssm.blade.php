@@ -1,8 +1,8 @@
 <div class="mt-6">
-    <label for="profile_pic" class="flex text-sm leading-5 font-medium text-gray-700">
-        SSM <span class="text-red-700 ml-1">*</span>
+    <label for="profile_pic" class="flex text-sm font-medium leading-5 text-gray-700">
+        SSM
         <a href="{{ asset('docs/ssm.pdf') }}" target="_blank">
-            <svg class="h-5 w-5 ml-6" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5 ml-6" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd"
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                     clip-rule="evenodd"></path>
@@ -18,7 +18,7 @@
                 <span class="inline-flex rounded-md shadow-sm">
                     <a href="{{ asset('storage/'.auth()->user()->ic_no. '/' . auth()->user()->pinjaman->document_ssm) }}"
                         target="_blank" type="button"
-                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
                         <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
                             <path fill-rule="evenodd"
                                 d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"
@@ -29,7 +29,7 @@
                 </span>
                 <span class="inline-flex rounded-md shadow-sm">
                     <button type="submit"
-                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition duration-150 ease-in-out bg-red-600 border border-transparent rounded-md hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700"
                         @click.prevent="open = true">
                         <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
                             <path fill-rule="evenodd"
@@ -42,7 +42,7 @@
             </div>
 
             {{-- delete gambar modal --}}
-            <div class="fixed bottom-0 inset-x-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center"
+            <div class="fixed inset-x-0 bottom-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center"
                 x-show="open" x-cloak>
                 <div class="fixed inset-0 transition-opacity"
                     x-show="open" x-cloak
@@ -55,7 +55,7 @@
                     <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
                 </div>
 
-                <div class="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full sm:p-6"
+                <div class="px-4 pt-5 pb-4 overflow-hidden transition-all transform bg-white rounded-lg shadow-xl sm:max-w-lg sm:w-full sm:p-6"
                     x-show="open" x-cloak
                     x-transition:enter="ease-out duration-300"
                     x-transition:enter-start=" opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -65,8 +65,8 @@
                     x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
                     <div class="sm:flex sm:items-start">
                         <div
-                            class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                            <svg class="h-6 w-6 text-red-600" stroke="currentColor"
+                            class="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
+                            <svg class="w-6 h-6 text-red-600" stroke="currentColor"
                                 fill="none" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2"
@@ -74,7 +74,7 @@
                             </svg>
                         </div>
                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            <h3 class="text-lg font-medium leading-6 text-gray-900">
                                 Padam Fail SSM!
                             </h3>
                             <div class="mt-2">
@@ -87,15 +87,15 @@
                     <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                             <button type="button"
-                                class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                                class="inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red sm:text-sm sm:leading-5"
                                 onclick="event.preventDefault();deleteSSM({{auth()->user()->pinjaman->id}})">
                                 Padam!
                             </button>
                         </span>
                         <span
-                            class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+                            class="flex w-full mt-3 rounded-md shadow-sm sm:mt-0 sm:w-auto">
                             <button type="button"
-                                class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                                class="inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline sm:text-sm sm:leading-5"
                                 @click="open = false">
                                 Batal
                             </button>
@@ -108,7 +108,7 @@
         @else
         <div class="text-center">
             <input type="file" name="doc_ssm" id="ssm" class="hidden" />
-            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none"
+            <svg class="w-12 h-12 mx-auto text-gray-400" stroke="currentColor" fill="none"
                 viewBox="0 0 48 48">
                 <path
                     d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
@@ -116,7 +116,7 @@
             </svg>
             <p class="mt-1 text-sm text-gray-600">
                 <a
-                    class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition duration-150 ease-in-out">
+                    class="font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500 focus:outline-none focus:underline">
                     Muat naik
                 </a>
             </p>
@@ -130,7 +130,7 @@
                 PDF sahaja | Saiz Maksimum: 3MB
             </p>
             @error('doc_ssm')
-            <p class="text-red-500 text-xs italic mt-4">
+            <p class="mt-4 text-xs italic text-red-500">
                 Ruangan Dokument Sokongan - SSM diperlukan
             </p>
             @enderror
@@ -139,11 +139,11 @@
     </div>
     {{-- test --}}
     <div id="ssm-uploaded-div"
-        class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md cursor-pointer"
+        class="flex justify-center px-6 pt-5 pb-6 mt-2 border-2 border-gray-300 border-dashed rounded-md cursor-pointer"
         style="display:none">
-        <span class="mt-3 inline-flex rounded-md shadow-sm">
+        <span class="inline-flex mt-3 rounded-md shadow-sm">
             <a id="ssm-buttonDel" type="button"
-                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition ease-in-out duration-150"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition duration-150 ease-in-out bg-red-600 border border-transparent rounded-md hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700"
                 onclick="ssmDelFile()">
                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
                     <path fill-rule="evenodd"
