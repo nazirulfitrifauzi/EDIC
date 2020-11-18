@@ -44,7 +44,7 @@
 {{ $salutation }}
 @else
 @lang('Sekian, Terima kasih'),<br>
-TEKUN Nasional
+EDIC
 @endif
 
 {{-- Subcopy --}}

@@ -10,7 +10,7 @@ class RedirectController extends Controller
     {
         if (Auth::user()) {
             if (auth()->user()->submit === '1') {
-                return redirect()->route('sptp-status');
+                return redirect()->route('mobile.status');
             } else {
                 return redirect()->route('home');
             }

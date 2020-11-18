@@ -61,35 +61,7 @@
                     <h1 class="text-3xl font-bold leading-9 text-white">
                         ENTREPRENEURSHIP DIGITALIZATION INITIATIVE CLUB (EDIC)
                     </h1>
-
-                    {{-- @if(is_null(auth()->user()->scheme_code))
-                    <div class="hidden ml-auto sm:block">
-                        <a href="{{ route('home') }}" type="button"
-                            class="inline-flex items-center px-2 py-2 text-xs font-medium leading-4 text-white transition duration-150 ease-in-out bg-yellow-600 border border-transparent rounded-md hover:bg-yellow-500 focus:outline-none focus:border-yellow-700 focus:shadow-outline-yellow active:bg-yellow-700 sm:text-base">
-                            <svg class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                    clip-rule="evenodd" fill-rule="evenodd"></path>
-                            </svg>
-                            Kembali
-                        </a>
-                    </div>
-                    @endif --}}
                 </div>
-
-                {{-- @if(is_null(auth()->user()->scheme_code))
-                <div class="flex justify-center block sm:hidden">
-                    <a href="{{ route('home') }}" type="button"
-                        class="inline-flex items-center px-2 py-2 mt-4 text-xs font-medium leading-6 text-white transition duration-150 ease-in-out bg-yellow-600 border border-transparent rounded-md hover:bg-yellow-500 focus:outline-none focus:border-yellow-700 focus:shadow-outline-yellow active:bg-yellow-700 sm:text-base">
-                        <svg class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                clip-rule="evenodd" fill-rule="evenodd"></path>
-                        </svg>
-                        Kembali
-                    </a>
-                </div>
-                @endif --}}
             </div>
 
             @if (Session::has('success'))
@@ -159,117 +131,93 @@
         <div class="px-4 pb-12 mx-auto max-w-7xl sm:px-6 lg:px-20">
             <!-- Replace with your content -->
             <div class="px-5 py-6 bg-gray-100 rounded-lg shadow sm:px-6">
-                <div @if ($errors->any())
-                    @if (
-                    $errors->has('business_status') ||
-                    $errors->has('business_type') ||
-                    $errors->has('bank1') ||
-                    $errors->has('bank1_acct') ||
-                    $errors->has('gambar') ||
-                    $errors->has('name') ||
-                    $errors->has('ic_no') ||
-                    $errors->has('gender') ||
-                    $errors->has('religion') ||
-                    $errors->has('birthdate') ||
-                    $errors->has('race') ||
-                    $errors->has('age') ||
-                    $errors->has('marital') ||
-                    $errors->has('dependent') ||
-                    $errors->has('oku') ||
-                    $errors->has('address1') ||
-                    $errors->has('postcode') ||
-                    $errors->has('city') ||
-                    $errors->has('state') ||
-                    $errors->has('phone_hp') ||
-                    $errors->has('email') ||
-                    $errors->has('profession') ||
-                    $errors->has('income') ||
-                    $errors->has('employer_name') ||
-                    $errors->has('spouse_type') ||
-                    $errors->has('spouse_name') ||
-                    $errors->has('nationality') ||
-                    $errors->has('passport_no') ||
-                    $errors->has('spouse_ic_no') ||
-                    $errors->has('spouse_phone') ||
-                    $errors->has('spouse_profession') ||
-                    $errors->has('education')
-                    )
-                    x-data="{ tab: 'tab1' }"
-                    @elseif(
-                    $errors->has('business_name') ||
-                    $errors->has('business_sector') ||
-                    $errors->has('business_activity') ||
-                    $errors->has('business_address1') ||
-                    $errors->has('business_postcode') ||
-                    $errors->has('business_city') ||
-                    $errors->has('business_state') ||
-                    $errors->has('business_phone_hp') ||
-                    $errors->has('business_premise') ||
-                    $errors->has('business_ownership') ||
-                    $errors->has('business_modal') ||
-                    $errors->has('business_open') ||
-                    $errors->has('business_closed') ||
-                    $errors->has('business_ehailing') ||
-                    $errors->has('business_income') ||
-                    $errors->has('partner_name') ||
-                    $errors->has('partner_ic') ||
-                    $errors->has('partner_address1') ||
-                    $errors->has('partner_postcode') ||
-                    $errors->has('partner_city') ||
-                    $errors->has('partner_state') ||
-                    $errors->has('partner_doc')
-                    )
-                    x-data="{ tab: 'tab2' }"
-                    @elseif(
-                        $errors->has('purchase_price') ||
-                        $errors->has('duration') ||
-                        $errors->has('reference_name') ||
-                        $errors->has('reference_address1') ||
-                        $errors->has('reference_postcode') ||
-                        $errors->has('reference_city') ||
-                        $errors->has('reference_state') ||
-                        $errors->has('reference_relation') ||
-                        $errors->has('reference_phone') ||
-                        $errors->has('doc_ic_no1') ||
-                        $errors->has('doc_ic_no2') ||
-                        $errors->has('doc_icP_no1') ||
-                        $errors->has('doc_icP_no2') ||
-                        $errors->has('doc_bank') ||
-                        $errors->has('doc_bil') ||
-                        $errors->has('doc_ssm')
-                    )
-                    x-data="{ tab: 'tab3' }"
-                    @endif
-                    @else
-                    @if (Session::has('nextTab'))
-                    @if (Session::get("nextTab") === 'tab2' )
-                    x-data="{ tab: 'tab2' }"
-                    @elseif(Session::get("nextTab") === 'tab3')
-                    x-data="{ tab: 'tab3' }"
-                    @endif
-                    @else
-                    @if (Session::has('Tab'))
-                    @if (Session::get("Tab") === 'tab1' )
-                    x-data="{ tab: 'tab1' }"
-					@elseif(Session::get("Tab") === 'tab2')
-                    x-data="{ tab: 'tab2' }"
-                    @elseif(Session::get("Tab") === 'tab3')
-                    x-data="{ tab: 'tab3' }"
-                    @endif
-                    @else
-                    x-data="{ tab: 'tab1' }"
-                    @endif
-                    @endif
-                    @endif
-
-
+                <div
                     @if ($errors->any())
+                        @if (
+                            $errors->has('name') ||
+                            $errors->has('ic_no') ||
+                            $errors->has('gender') ||
+                            $errors->has('religion') ||
+                            $errors->has('birthdate') ||
+                            $errors->has('race') ||
+                            $errors->has('age') ||
+                            $errors->has('marital') ||
+                            $errors->has('dependent') ||
+                            $errors->has('oku') ||
+                            $errors->has('address1') ||
+                            $errors->has('postcode') ||
+                            $errors->has('city') ||
+                            $errors->has('state') ||
+                            $errors->has('phone_hp') ||
+                            $errors->has('education') ||
+                            $errors->has('email') ||
+                            $errors->has('profession') ||
+                            $errors->has('income')
+                        )
+                            x-data="{ tab: 'tab1' }"
+                        @elseif(
+                            $errors->has('business_name') ||
+                            $errors->has('business_sector') ||
+                            $errors->has('business_activity') ||
+                            $errors->has('business_address1') ||
+                            $errors->has('business_postcode') ||
+                            $errors->has('business_city') ||
+                            $errors->has('business_state') ||
+                            $errors->has('business_phone_hp') ||
+                            $errors->has('business_premise') ||
+                            $errors->has('business_ownership') ||
+                            $errors->has('business_modal') ||
+                            $errors->has('business_open') ||
+                            $errors->has('business_closed') ||
+                            $errors->has('business_ehailing') ||
+                            $errors->has('business_income') ||
+                            $errors->has('partner_name') ||
+                            $errors->has('partner_ic') ||
+                            $errors->has('partner_address1') ||
+                            $errors->has('partner_postcode') ||
+                            $errors->has('partner_city') ||
+                            $errors->has('partner_state')
+                            // $errors->has('partner_doc')
+                        )
+                            x-data="{ tab: 'tab2' }"
+                        @elseif(
+                            $errors->has('doc_ic_no1') ||
+                            $errors->has('doc_ic_no2') ||
+                            $errors->has('doc_icP_no1') ||
+                            $errors->has('doc_icP_no2') ||
+                            $errors->has('doc_ssm')
+                        )
+                            x-data="{ tab: 'tab3' }"
+                        @endif
+                    @else
+                        @if (Session::has('nextTab'))
+                            @if (Session::get("nextTab") === 'tab2' )
+                                x-data="{ tab: 'tab2' }"
+                            @elseif(Session::get("nextTab") === 'tab3')
+                                x-data="{ tab: 'tab3' }"
+                            @endif
+                        @else
+                            @if (Session::has('Tab'))
+                                @if (Session::get("Tab") === 'tab1' )
+                                    x-data="{ tab: 'tab1' }"
+                                @elseif(Session::get("Tab") === 'tab2')
+                                    x-data="{ tab: 'tab2' }"
+                                @elseif(Session::get("Tab") === 'tab3')
+                                    x-data="{ tab: 'tab3' }"
+                                @endif
+                            @else
+                                x-data="{ tab: 'tab1' }"
+                            @endif
+                        @endif
+                    @endif
+
+                    {{-- @if ($errors->any())
                         @if ($errors->has('tekun_state') || $errors->has('tekun_branch'))
                             tab1
                         @elseif($errors->has('business_ownership') || $errors->has('business_open') || $errors->has('business_closed'))
                             tab2
                         @endif
-                    @endif
+                    @endif --}}
                     >
                     <div class="flex justify-between mb-4 sm:hidden">
                         <span class="inline-flex rounded-md shadow-sm" x-data="{ open: false }">
@@ -626,9 +574,9 @@
                         </nav>
                     </div>
 
-                    <div @if(isset(auth()->user()->peribadi->tekun_state)) x-data="{ open: false }" @else x-data="{ open: true }" @endif>
+                    {{-- <div @if(isset(auth()->user()->peribadi->tekun_state)) x-data="{ open: false }" @else x-data="{ open: true }" @endif>
                         @include('mobile_negeri')
-                    </div>
+                    </div> --}}
 
                     {{-- card content --}}
                     @include('mobile_maklumatPeribadi')

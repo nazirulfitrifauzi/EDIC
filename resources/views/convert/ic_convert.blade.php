@@ -46,10 +46,10 @@
 <body>
     <main>
         <div class="text-center {{ ($image1_size[0] < $image1_size[1]) ? 'rotate' : '' }}">
-            <img style="max-width:40%;" src="{{ public_path('storage/'.$ic.'/'.$image1.'') }}" alt="image1">
+            <img style="max-width:40%;" src="{{ asset('storage/'.$ic.'/'.$image1.'') }}" alt="image1">
         </div>
         <div class="mt-6 text-center {{ ($image2_size[0] < $image2_size[1]) ? 'rotate' : '' }}">
-            <img style="max-width:40%;" src="{{ public_path('storage/'.$ic.'/'.$image2.'') }}" alt="image2">
+            <img style="max-width:40%;" src="{{ asset('storage/'.$ic.'/'.$image2.'') }}" alt="image2">
         </div>
     </main>
 </body>

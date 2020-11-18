@@ -1,7 +1,6 @@
 <div x-show="tab === 'tab3'">
     <form method="post" action="{{ route('mobile.storePinjaman') }}" enctype="multipart/form-data">
         @csrf
-
         {{-- <div class="px-4 my-8">
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">

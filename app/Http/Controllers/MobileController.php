@@ -130,11 +130,12 @@ class MobileController extends Controller
 
     public function status()
     {
-        if (auth()->user()->completed == 0 && auth()->user()->scheme_code == '1132') {
+        // dd('test');
+        if (auth()->user()->completed == 0 && auth()->user()->scheme_code == '1134') {
             return redirect()->route('mobile');
         }
 
-        if (auth()->user()->completed == 1 && auth()->user()->submit == 0 && auth()->user()->scheme_code == '1132') {
+        if (auth()->user()->completed == 1 && auth()->user()->submit == 0 && auth()->user()->scheme_code == '1134') {
             $clientIP = request()->ip();
             $name = auth()->user()->name;
             $email = auth()->user()->email;
@@ -164,7 +165,7 @@ class MobileController extends Controller
             return redirect()->route('mobile.status');
         }
 
-        if (auth()->user()->submit == 1 && auth()->user()->scheme_code == '1132') {
+        if (auth()->user()->submit == 1 && auth()->user()->scheme_code == '1134') {
             if (auth()->user()->status == 7) {
                 $catatan = User::select('users.*', 'tbl_daftar.catatan')
                     ->where('users.id', auth()->user()->id)
@@ -365,31 +366,31 @@ class MobileController extends Controller
             'business_closed'       => ['required'],
             'business_income'       => ['required'],
 			'partner_name'          => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
-            'partner_ic'            => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
+            'partner_ic'            => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad','numeric', 'min:12'],
             'partner_address1'      => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
             'partner_postcode'      => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
             'partner_city'          => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
             'partner_state'         => ['required_if:business_ownership,==,Perkongsian', 'required_if:business_ownership,==,Sendirian Berhad'],
-            'doc_rk'                => ['file', 'mimes:pdf', 'max:3000'],
+            // 'doc_rk'                => ['file', 'mimes:pdf', 'max:3000'],
         ]);
 
-		if($request->has('doc_rk')) {
-            $ic_no = auth()->user()->ic_no;
+		// if($request->has('doc_rk')) {
+        //     $ic_no = auth()->user()->ic_no;
 
-            if (is_null(auth()->user()->perniagaan)) { // perniagaan null
-                $rk = $request->file('doc_rk');
-                $rk_name = auth()->user()->ic_no . '_RakanKongsi.' . $rk->getClientOriginalExtension();
-                Storage::disk('custom')->putFileAs('/' . $ic_no, $rk, $rk_name);
-            } else { //perniagaan ade rekod
-                if (is_null(auth()->user()->perniagaan->partner_doc)) {
-                    $rk = $request->file('doc_rk');
-                    $rk_name = auth()->user()->ic_no . '_RakanKongsi.' . $rk->getClientOriginalExtension();
-                    Storage::disk('custom')->putFileAs('/' . $ic_no, $rk, $rk_name);
-                } else {
-                    $rk_name = auth()->user()->perniagaan->partner_doc;
-                }
-            }
-        }
+        //     if (is_null(auth()->user()->perniagaan)) { // perniagaan null
+        //         $rk = $request->file('doc_rk');
+        //         $rk_name = auth()->user()->ic_no . '_RakanKongsi.' . $rk->getClientOriginalExtension();
+        //         Storage::disk('custom')->putFileAs('/' . $ic_no, $rk, $rk_name);
+        //     } else { //perniagaan ade rekod
+        //         if (is_null(auth()->user()->perniagaan->partner_doc)) {
+        //             $rk = $request->file('doc_rk');
+        //             $rk_name = auth()->user()->ic_no . '_RakanKongsi.' . $rk->getClientOriginalExtension();
+        //             Storage::disk('custom')->putFileAs('/' . $ic_no, $rk, $rk_name);
+        //         } else {
+        //             $rk_name = auth()->user()->perniagaan->partner_doc;
+        //         }
+        //     }
+        // }
 
         $perniagaan = Perniagaan::updateOrCreate([
             'user_id'               => auth()->user()->id
@@ -419,7 +420,7 @@ class MobileController extends Controller
             'partner_city'          => $request->get('partner_city'),
             'partner_state'         => $request->get('partner_state'),
             'partner_phone'         => $request->get('partner_phone'),
-			'partner_doc'           => ($request->missing('doc_rk')) ? NULL : $rk_name,
+			// 'partner_doc'           => ($request->missing('doc_rk')) ? NULL : $rk_name,
             'completed'             => 1,
         ]);
 
