@@ -28,6 +28,6 @@ class successfulApplication extends Mailable
      */
     public function build()
     {
-        return $this->subject('[TEKUN Nasional] Permohonan berjaya dihantar.')->markdown('emails.success');
+        return $this->subject('[EDIC] Permohonan berjaya dihantar.')->markdown('emails.success');
     }
 }

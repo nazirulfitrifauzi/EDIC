@@ -63,13 +63,13 @@ class RegisterController extends Controller
                     }
                 }
             ],
-            'age' => [
-                function ($attribute, $value, $fail) {
-                    if ($value < 18 || $value > 60) {
-                        $fail('Anda tidak layak memohon kerana syarat umur mesti berumur 18 tahun dan keatas dan tidak melebihi 60 tahun.');
-                    }
-                }
-            ],
+            // 'age' => [
+            //     function ($attribute, $value, $fail) {
+            //         if ($value < 18 || $value > 60) {
+            //             $fail('Anda tidak layak memohon kerana syarat umur mesti berumur 18 tahun dan keatas dan tidak melebihi 60 tahun.');
+            //         }
+            //     }
+            // ],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

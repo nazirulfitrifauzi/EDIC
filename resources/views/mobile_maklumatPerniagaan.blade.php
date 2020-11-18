@@ -33,7 +33,7 @@
         >
         @csrf
 
-        <div class="my-8 px-4">
+        <div class="px-4 my-8">
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
@@ -53,9 +53,9 @@
                                         Perniagaan/Syarikat <span class="text-red-700">*</span></label>
                                     <input id="business_name" name="business_name"
                                         value="{{ isset(auth()->user()->perniagaan->business_name) ? auth()->user()->perniagaan->business_name : old('business_name') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('business_name')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -67,9 +67,9 @@
                                         Lesen/Daftar Perniagaan <span class="text-red-700">*</span></label>
                                     <input id="business_no" name="business_no"
                                         value="{{ isset(auth()->user()->perniagaan->business_no) ? auth()->user()->perniagaan->business_no : old('business_no') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('business_no')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -80,7 +80,7 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">Sektor Perniagaan
                                         <span class="text-red-700">*</span></label>
                                     <select id="business_sector" name="business_sector"
-                                        class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        class="block w-full px-3 py-0 py-2 mt-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm form-select focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
                                         <option value="">Sila Pilih Sektor Perniagaan</option>
                                         @foreach($sektor as $sektors)
                                         <option value="{{ $sektors->idPerniagaan }}" @if(isset(auth()->
@@ -97,7 +97,7 @@
                                         @endforeach
                                     </select>
                                     @error('business_sector')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -109,7 +109,7 @@
                                         Perniagaan/Projek
                                         <span class="text-red-700">*</span></label>
                                     <select id="business_activity" name="business_activity"
-                                        class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        class="block w-full px-3 py-0 py-2 mt-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm form-select focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
                                         <option value="">Sila Pilih Aktiviti Perniagaan</option>
                                         @foreach($aktiviti as $aktivitis)
                                         <option value="{{ $aktivitis->idAktiviti }}" @if(isset(auth()->
@@ -126,7 +126,7 @@
                                         @endforeach
                                     </select>
                                     @error('business_activity')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -137,19 +137,19 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">Alamat
                                         Perniagaan/Permis/Projek <span class="text-red-700">*</span></label>
                                     <input id="business_address1" name="business_address1"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                                         value="{{ isset(auth()->user()->perniagaan->business_address1) ? auth()->user()->perniagaan->business_address1 : old('business_address1') }}" />
                                     @error('business_address1')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
 
                                     <input id="business_address2" name="business_address2"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                                         value="{{ isset(auth()->user()->perniagaan->business_address2) ? auth()->user()->perniagaan->business_address2 : old('business_address2') }}" />
                                     @error('business_address2')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -160,10 +160,10 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">Poskod <span
                                             class="text-red-700">*</span></label>
                                     <input id="business_postcode" name="business_postcode" minlength="5" maxlength="5"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                                         value="{{ isset(auth()->user()->perniagaan->business_postcode) ? auth()->user()->perniagaan->business_postcode : old('business_postcode') }}" />
                                     @error('business_postcode')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -174,10 +174,10 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">Bandar
                                         <span class="text-red-700">*</span></label>
                                     <input id="business_city" name="business_city"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                                         value="{{ isset(auth()->user()->perniagaan->business_city) ? auth()->user()->perniagaan->business_city : old('business_city') }}" />
                                     @error('business_city')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -188,7 +188,7 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">Negeri
                                         <span class="text-red-700">*</span></label>
                                     <select id="business_state" name="business_state"
-                                        class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        class="block w-full px-3 py-0 py-2 mt-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm form-select focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
                                         <option value="">Sila Pilih Negeri <span class="text-red-700">*</span></option>
                                         @foreach($negerix as $negerix4)
                                         <option value="{{ $negerix4->kodnegeri }}" @if(isset(auth()->
@@ -205,7 +205,7 @@
                                         @endforeach
                                     </select>
                                     @error('business_state')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -217,9 +217,9 @@
                                         Telefon (Perniagaan)</label>
                                     <input id="business_phone" name="business_phone"
                                         value="{{ isset(auth()->user()->perniagaan->business_phone) ? auth()->user()->perniagaan->business_phone : old('business_phone') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('business_phone')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -231,9 +231,9 @@
                                         Telefon (HP) - cth (0123456789) <span class="text-red-700">*</span></label>
                                     <input id="business_phone_hp" name="business_phone_hp"
                                         value="{{ isset(auth()->user()->perniagaan->business_phone_hp) ? auth()->user()->perniagaan->business_phone_hp : old('business_phone_hp') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('business_phone_hp')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -244,7 +244,7 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">Status Premis <span
                                             class="text-red-700">*</span></label>
                                     <select id="business_premise" name="business_premise"
-                                        class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        class="block w-full px-3 py-0 py-2 mt-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm form-select focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
                                         <option value="">Sila Pilih Status Premis</option>
                                         <option value="Sendiri" @if(isset(auth()->user()->perniagaan->business_premise))
                                             @if(auth()->user()->perniagaan->business_premise == 'Sendiri') selected
@@ -270,7 +270,7 @@
                                             @endif>Persatuan</option>
                                     </select>
                                     @error('business_premise')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -281,7 +281,7 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">Permilikan Perniagaan
                                         <span class="text-red-700">*</span></label>
                                     <select id="business_ownership" name="business_ownership"
-                                        class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm form-select focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                                         @change="tabs = $event.target.value">
                                         <option value="">Sila Pilih Permilikan Perniagaan</option>
                                         <option value="Individu" @if(isset(auth()->
@@ -332,7 +332,7 @@
                                             > Sendirian Berhad </option>
                                     </select>
                                     @error('business_ownership')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -343,9 +343,9 @@
                                         <label for="business_modal"
                                             class="block text-sm font-medium leading-5 text-gray-700">Modal
                                             Berbayar <span class="text-red-700">*</span></label>
-                                        <div class="mt-1 relative rounded-md shadow-sm">
+                                        <div class="relative mt-1 rounded-md shadow-sm">
                                             <div
-                                                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                                 <span class="text-gray-500 sm:text-sm sm:leading-5">
                                                     RM
                                                 </span>
@@ -353,10 +353,10 @@
                                             <input id="business_modal" name="business_modal" min="0"
                                                 value="{{ isset(auth()->user()->perniagaan->business_modal) ? auth()->user()->perniagaan->business_modal : old('business_modal') }}"
                                                 type="number" step="0.01"
-                                                class="mt-1 form-input block w-full pl-16 sm:pl-14 py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                                class="block w-full px-3 py-2 pl-16 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input sm:pl-14 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                         </div>
                                         @error('business_modal')
-                                        <p class="text-red-500 text-xs italic mt-4">
+                                        <p class="mt-4 text-xs italic text-red-500">
                                             {{ $message }}
                                         </p>
                                         @enderror
@@ -374,9 +374,9 @@
                                         <span class="text-red-700">*</span></label>
                                     <input id="business_open" name="business_open" type="time"
                                         value="{{ isset(auth()->user()->perniagaan->business_open) ? auth()->user()->perniagaan->business_open : old('business_open') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('business_open')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -388,9 +388,9 @@
                                             class="text-red-700">*</span></label>
                                     <input id="business_closed" name="business_closed" type="time"
                                         value="{{ isset(auth()->user()->perniagaan->business_closed) ? auth()->user()->perniagaan->business_closed : old('business_closed') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('business_closed')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -401,9 +401,9 @@
                                     <label class="block text-sm font-medium leading-5 text-gray-700">Anggaran Pendapatan
                                         Kasar
                                         (Sebulan) <span class="text-red-700">*</span></label>
-                                    <div class="mt-1 relative rounded-md shadow-sm">
+                                    <div class="relative mt-1 rounded-md shadow-sm">
                                         <div
-                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                             <span class="text-gray-500 sm:text-sm sm:leading-5">
                                                 RM
                                             </span>
@@ -411,10 +411,10 @@
                                         <input id="business_income" name="business_income" min="0"
                                             value="{{ isset(auth()->user()->perniagaan->business_income) ? auth()->user()->perniagaan->business_income : old('business_income') }}"
                                             type="number" step="0.01"
-                                            class="mt-1 form-input block w-full pl-16 sm:pl-14 py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                            class="block w-full px-3 py-2 pl-16 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input sm:pl-14 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     </div>
                                     @error('business_income')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -432,7 +432,7 @@
             </div>
         </div>
 
-        <div class="my-8 px-4" x-show="tabs === 'Perkongsian' || tabs === 'Sendirian Berhad'">
+        <div class="px-4 my-8" x-show="tabs === 'Perkongsian' || tabs === 'Sendirian Berhad'">
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
@@ -443,7 +443,7 @@
                     </div>
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
-                    <div class="shadow overflow-hidden sm:rounded-md">
+                    <div class="overflow-hidden shadow sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6 mt-1">
 
@@ -453,9 +453,9 @@
                                         <span class="text-red-700">*</span></label>
                                     <input id="partner_name" name="partner_name"
                                         value="{{ isset(auth()->user()->perniagaan->partner_name) ? auth()->user()->perniagaan->partner_name : old('partner_name') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('partner_name')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -467,9 +467,9 @@
                                         (Baru) - cth (900000010000) <span class="text-red-700">*</span></label>
                                     <input id="partner_ic" name="partner_ic"
                                         value="{{ isset(auth()->user()->perniagaan->partner_ic) ? auth()->user()->perniagaan->partner_ic : old('partner_ic') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('partner_ic')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -481,18 +481,18 @@
                                             class="text-red-700">*</span></label>
                                     <input id="partner_address1" name="partner_address1"
                                         value="{{ isset(auth()->user()->perniagaan->partner_address1) ? auth()->user()->perniagaan->partner_address1 : old('partner_address1') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('partner_address1')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
 
                                     <input id="partner_address2" name="partner_address2"
                                         value="{{ isset(auth()->user()->perniagaan->partner_address2) ? auth()->user()->perniagaan->partner_address2 : old('partner_address2') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('partner_address2')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -504,9 +504,9 @@
                                             class="text-red-700">*</span></label>
                                     <input id="partner_postcode" name="partner_postcode" maxlength="5"
                                         value="{{ isset(auth()->user()->perniagaan->partner_postcode) ? auth()->user()->perniagaan->partner_postcode : old('partner_postcode') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('partner_postcode')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -518,9 +518,9 @@
                                         <span class="text-red-700">*</span></label>
                                     <input id="partner_city" name="partner_city"
                                         value="{{ isset(auth()->user()->perniagaan->partner_city) ? auth()->user()->perniagaan->partner_city : old('partner_city') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('partner_city')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -531,7 +531,7 @@
                                         class="block text-sm font-medium leading-5 text-gray-700">Negeri
                                         <span class="text-red-700">*</span></label>
                                     <select id="partner_state" name="partner_state"
-                                        class="mt-1 block form-select w-full py-2 px-3 py-0 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                        class="block w-full px-3 py-0 py-2 mt-1 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm form-select focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
                                         <option value="">Sila Pilih</option>
                                         @foreach($negerix as $negerix3)
                                         <option value="{{ $negerix3->kodnegeri }}" @if(isset(auth()->
@@ -548,7 +548,7 @@
                                         @endforeach
                                     </select>
                                     @error('partner_state')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
@@ -560,15 +560,15 @@
                                         Telefon (Rumah)</label>
                                     <input id="partner_phone" name="partner_phone"
                                         value="{{ isset(auth()->user()->perniagaan->partner_phone) ? auth()->user()->perniagaan->partner_phone : old('partner_phone') }}"
-                                        class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                        class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                                     @error('partner_phone')
-                                    <p class="text-red-500 text-xs italic mt-4">
+                                    <p class="mt-4 text-xs italic text-red-500">
                                         {{ $message }}
                                     </p>
                                     @enderror
                                 </div>
 
-                                @include('upload.rakan_kongsi')
+                                {{-- @include('upload.rakan_kongsi') --}}
                             </div>
                         </div>
                     </div>
@@ -576,10 +576,10 @@
             </div>
         </div>
 
-        <div class="mt-6 flex justify-center">
+        <div class="flex justify-center mt-6">
             <span class="inline-flex rounded-md shadow-sm">
                 <button type="submit"
-                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition ease-in-out duration-150">
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-white transition duration-150 ease-in-out bg-green-600 border border-transparent rounded-md hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700">
                     {{--add this to disable button: opacity-50 cursor-not-allowed --}}
                     <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
                         <path fill-rule="evenodd"

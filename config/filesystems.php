@@ -50,7 +50,7 @@ return [
 
         'custom' => [
             'driver' => 'local',
-            'root'   => 'E:\apps\edic\storage',
+            'root'   => 'F:\storage\edic',
         ],
 
         'public' => [
@@ -87,7 +87,7 @@ return [
     //],
 
     'links' => [
-        public_path('storage') => 'E:\apps\edic\storage',
+        public_path('storage') => 'F:\storage\edic',
     ],
 
 ];
