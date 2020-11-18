@@ -468,7 +468,7 @@ class MobileController extends Controller
                 "doc_ic_no2"            => ['required', 'file', 'mimes:jpg,jpeg,png', 'max:3000'],
                 "doc_icP_no1"           => [Rule::requiredIf($request->user()->peribadi->marital == 'Berkahwin'), 'file', 'mimes:jpg,jpeg,png', 'max:3000'],
                 "doc_icP_no2"           => [Rule::requiredIf($request->user()->peribadi->marital == 'Berkahwin'), 'file', 'mimes:jpg,jpeg,png', 'max:3000'],
-                "doc_ssm"               => ['file', 'mimes:pdf', 'max:3000'],
+                "doc_ssm"               => ['sometimes', 'file', 'mimes:pdf', 'max:3000'],
                 // "doc_bank"              => ['required', 'file', 'mimes:pdf', 'max:3000'],
                 // "doc_bank_comp"         => ['file', 'mimes:pdf', 'max:3000'],
                 // "doc_bil"               => ['required', 'file', 'mimes:pdf', 'max:3000'],
@@ -490,7 +490,7 @@ class MobileController extends Controller
                 "doc_ic_no2"            => ['file', 'mimes:jpg,jpeg,png', 'max:3000', Rule::requiredIf($request->user()->pinjaman->document_ic_no == NULL)],
                 "doc_icP_no1"           => ['file', 'mimes:jpg,jpeg,png', 'max:3000', Rule::requiredIf($request->user()->peribadi->marital == 'Berkahwin' && $request->user()->pinjaman->document_icP_no == NULL)],
                 "doc_icP_no2"           => ['file', 'mimes:jpg,jpeg,png', 'max:3000', Rule::requiredIf($request->user()->peribadi->marital == 'Berkahwin' && $request->user()->pinjaman->document_icP_no == NULL)],
-                "doc_ssm"               => ['file', 'mimes:pdf', 'max:3000', Rule::requiredIf($request->user()->pinjaman->document_ssm == NULL)],
+                "doc_ssm"               => ['sometimes', 'file', 'mimes:pdf', 'max:3000'],
                 // "doc_bank"              => ['file', 'mimes:pdf', 'max:3000', Rule::requiredIf($request->user()->pinjaman->document_bank_statements == NULL)],
                 // "doc_bil"               => ['file', 'mimes:pdf', 'max:3000', Rule::requiredIf($request->user()->pinjaman->document_utility == NULL)],
                 // "doc_bank_comp"         => ['file', 'mimes:pdf', 'max:3000'],
@@ -569,9 +569,12 @@ class MobileController extends Controller
             // $gambar_name = auth()->user()->ic_no . '_gambar.' . $gambar->getClientOriginalExtension();
             // Storage::disk('custom')->putFileAs('/' . $ic_no, $gambar, $gambar_name);
 
-            $ssm = $request->file('doc_ssm');
-            $ssm_name = auth()->user()->ic_no . '_ssm.' . $ssm->getClientOriginalExtension();
-            Storage::disk('custom')->putFileAs('/' . $ic_no, $ssm, $ssm_name);
+            if($request->hasFile('doc_ssm'))
+            {
+                $ssm = $request->file('doc_ssm');
+                $ssm_name = auth()->user()->ic_no . '_ssm.' . $ssm->getClientOriginalExtension();
+                Storage::disk('custom')->putFileAs('/' . $ic_no, $ssm, $ssm_name);
+            }
 
             // $bank = $request->file('doc_bank');
             // $bank_name = auth()->user()->ic_no . '_bank.' . $bank->getClientOriginalExtension();
@@ -684,12 +687,14 @@ class MobileController extends Controller
             //     $gambar_name = auth()->user()->pinjaman->gambar;
             // }
 
-            if (is_null(auth()->user()->pinjaman->document_ssm)) {
-                $ssm = $request->file('doc_ssm');
-                $ssm_name = auth()->user()->ic_no . '_ssm.' . $ssm->getClientOriginalExtension();
-                Storage::disk('custom')->putFileAs('/' . $ic_no, $ssm, $ssm_name);
-            } else {
-                $ssm_name = auth()->user()->pinjaman->document_ssm;
+            if ($request->hasFile('doc_ssm')) {
+                if (is_null(auth()->user()->pinjaman->document_ssm)) {
+                    $ssm = $request->file('doc_ssm');
+                    $ssm_name = auth()->user()->ic_no . '_ssm.' . $ssm->getClientOriginalExtension();
+                    Storage::disk('custom')->putFileAs('/' . $ic_no, $ssm, $ssm_name);
+                } else {
+                    $ssm_name = auth()->user()->pinjaman->document_ssm;
+                }
             }
 
             // if (is_null(auth()->user()->pinjaman->document_bank_statements)) {
@@ -745,7 +750,7 @@ class MobileController extends Controller
             // 'document_bank_statements'      => $bank_name,
             // 'document_bank_comp_statements' => ($request->missing('doc_bank_comp')) ? NULL : $bank_comp_name,
             // 'document_utility'              => $bil_name,
-            'document_ssm'                  => $ssm_name,
+            'document_ssm'                  => $request->hasFile('doc_ssm') ? $ssm_name : NULL,
             // 'document_extra'                => $extra_name,
             'completed'                     => 1,
         ]);
